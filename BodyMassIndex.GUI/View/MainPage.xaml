@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BodyMassIndex.GUI.MainPage"
+             Title="Índice de masa corporal">
+
+    <Grid 
+        RowDefinitions="Auto,Auto,Auto"
+        ColumnDefinitions="*"
+        Padding="16">
+        <Frame
+            Grid.Row="0"
+            Grid.Column="0"
+            Margin="8"
+            CornerRadius="0"
+            BorderColor="LightGray">
+            <VerticalStackLayout 
+                Spacing="8">
+                <Entry Placeholder="Nombre de la persona: "
+                       Text="{Binding Nombre}"/>
+                <Entry Placeholder="Peso de la persona en kilogramos: "
+                       Text="{Binding Peso}"/>
+                <Entry Placeholder="Estatura de la persona en metros: "
+                       Text="{Binding Estatura}"/>
+
+            </VerticalStackLayout>
+
+        </Frame>
+
+        <HorizontalStackLayout Grid.Row="1" Grid.Column="0"
+                               Margin="8"
+                               HorizontalOptions="Center"
+                               Spacing="16">
+            <Button Text="Calcular"
+                    WidthRequest="100"
+                    Command="{Binding CalcularImcCommand}"/>
+            <Button Text="Limpiar"
+                    WidthRequest="100"
+                    Command="{Binding LimpiarCommand}"/>
+        </HorizontalStackLayout>
+
+        <Frame Grid.Row="2" Grid.Column="0"
+               CornerRadius="4"
+               BorderColor="LightGray"
+               Margin="8">
+            <VerticalStackLayout Padding="4">
+                <Label Text="El indice de masa corporal de la persona es: "/>
+                <Label Text="{Binding IndiceDeMasaCorporal}"
+                       FontSize="Title"
+                       HorizontalOptions="Center"/>
+                <Label Text="La situacion nutricional de la persona es: "/>
+                <Label Text="{Binding SituacionNutricional}"
+                       FontSize="Title"
+                       HorizontalOptions="Center"   />
+            </VerticalStackLayout>
+        </Frame>
+
+
+    </Grid>
+
+
+</ContentPage>
